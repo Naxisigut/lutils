@@ -3,14 +3,13 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
 
-console.log('11111', resolve(__dirname, 'src/plugins/index.ts'))
 export default defineConfig({
   server: {
     port: 5100,
   },
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/main/index.ts'), // Could also be a dictionary or array of multiple entry points
+      entry: resolve(__dirname, 'src/index.ts'), // Could also be a dictionary or array of multiple entry points
       name: 'lutils',
       // the proper extensions will be added
       fileName: 'lutils'
