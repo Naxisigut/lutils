@@ -31,6 +31,10 @@ export const zeroPadPre = (target:number | string, length:number = 1) => {
   return target
 }
 
+
+
+
+
 /** 
  * 判断输入是否为一个整数
  * @param val 
@@ -44,7 +48,7 @@ export const isInteger = (val: number) => Math.floor(val) === val
  * @param floatNum 
  * @returns 
  */
-export function toInteger(floatNum: number) {
+function toInteger(floatNum: number) {
   var ret = {times: 1, num: 0}
   if (isInteger(floatNum)) {
     ret.num = floatNum
@@ -79,6 +83,9 @@ export const add = (a: number, b: number, ...args: Array<number>): number => {
   } else { // o1 小数位 小于 o2
     result = n1 * (t2 / t1) + n2
   }
+
+  // 若存在其它参数，递归调用函数以计算所有数之和
+  // add(result / tmax, args.shift() as number, ...args) 这么写是为了防止ts类型报错
   return args.length ? add(result / tmax, args.shift() as number, ...args) : (result / tmax)
 }
 
@@ -88,7 +95,7 @@ export const add = (a: number, b: number, ...args: Array<number>): number => {
  * @param b 
  * @returns 
  */
-export function sub(a:number, b:number){
+export const sub = (a:number, b:number) => {
   let { num: n1, times: t1 } = toInteger(a)
   let { num: n2, times: t2 } = toInteger(b)
   let tmax = t1 > t2 ? t1 : t2
@@ -109,11 +116,12 @@ export function sub(a:number, b:number){
  * @param b 
  * @returns 
  */
-export function mul(a:number, b:number){
+export const mul = (a:number, b:number, ...args: number[]): number => {
   let { num: n1, times: t1 } = toInteger(a)
   let { num: n2, times: t2 } = toInteger(b)
   let result = (n1 * n2) / (t1 * t2)
-  return result
+
+  return args.length ? mul(result, args.shift() as number, ...args) : result
 }
 
 /**
