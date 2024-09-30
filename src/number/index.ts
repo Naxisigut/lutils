@@ -79,7 +79,7 @@ export const add = (a: number, b: number, ...args: Array<number>): number => {
   } else { // o1 小数位 小于 o2
     result = n1 * (t2 / t1) + n2
   }
-  return args.length ? add(result / tmax, ...args) : (result / tmax)
+  return args.length ? add(result / tmax, args.shift() as number, ...args) : (result / tmax)
 }
 
 /**
