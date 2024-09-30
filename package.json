@@ -3,6 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "files": ["dist"],
+  "main": "./dist/lutils.umd.cjs",
+  "module": "./dist/lutils.js",
+  "exports": {
+    ".": {
+      "import": "./dist/lutils.js",
+      "require": "./dist/lutils.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
