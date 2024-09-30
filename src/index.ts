@@ -1,5 +1,5 @@
 export const sum = (a: number, b: number): number => {
   return a + b
 }
-
-export const  abdc = 1
+export * as StringUtils from './string'
+export { strPop, obj2Query } from './string'

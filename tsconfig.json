@@ -19,5 +19,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src", "test/index.spec.ts", "test/array.test.ts", "test/string.test.ts"]
 }
