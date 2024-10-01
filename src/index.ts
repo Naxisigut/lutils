@@ -1,5 +1,14 @@
-export const sum = (a: number, b: number): number => {
-  return a + b
-}
+export * as ArrayUtils from './array'
+export * from './array'
+
+export * as NumberUtils from './number'
+export * from './number'
+
+export * as OtherUtils from './other'
+export * from './other'
+
 export * as StringUtils from './string'
-export { strPop, obj2Query } from './string'
+export * from './string'
+
+export * as WebUtils from './web'
+export * from './web'

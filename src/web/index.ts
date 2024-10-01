@@ -22,7 +22,7 @@ export const jsonLog = (obj: any, tag: string) => {
  * @param string 
  * @returns
  */
-export const copyText = (str: string) => {
+export const copyTextOnWeb = (str: string) => {
   const ipt = document.createElement('input')
   ipt.value = str
   document.body.appendChild(ipt)
@@ -36,6 +36,6 @@ export const copyText = (str: string) => {
  * 浏览器调用拨打电话
  * @param phoneNumber 
  */
-export const call = (phoneNumber: string) => {
+export const callOnWeb = (phoneNumber: string) => {
   window.location.href = "tel://" + phoneNumber
 }
