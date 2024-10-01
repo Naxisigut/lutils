@@ -13,9 +13,10 @@ export const formatTime = (date: Date, formatStr: string) => {
     m: date.getMinutes(),
     s: date.getSeconds(),
   }
+  type keys = 'Y' | 'M' | 'D' | 'h' | 'm' | 's'
   return formatStr.replace(
     /Y+|M+|D+|h+|m+|s+/g,
-    target => (new Array(target.length).join('0') + formatType[target[0]]).substr(-target.length)
+    target => (new Array(target.length).join('0') + formatType[target[0] as keys]).substr(-target.length)
   )
 }
 
