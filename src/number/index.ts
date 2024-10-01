@@ -1,3 +1,5 @@
+export * from './numSanitize'
+
 /**
  * 获取min~max之间的随机整数
  * @param min 最小数
