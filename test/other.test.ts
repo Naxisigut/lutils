@@ -2,7 +2,9 @@ import { test, expect } from 'vitest';
 import { formatTime, sleep } from '../src/other/index';
 
 test('formatTime', () => {
-  expect(formatTime(new Date, 'YYYY-MM-DD')).toBe('2024-10-01')
+  const dateObj = new Date()
+  const dateStr = `${dateObj.getFullYear()}-${dateObj.getMonth() + 1}-${dateObj.getDate().toString().length === 1 && 0}${dateObj.getDate()}`
+  expect(formatTime(new Date, 'YYYY-MM-DD')).toBe(dateStr)
 })
 
 test('sleep', async () => {
