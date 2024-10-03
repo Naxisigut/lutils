@@ -33,9 +33,12 @@ export const zeroPadPre = (target:number | string, length:number = 1) => {
   return target
 }
 
-
-
-
+/**
+ * 判断是否是偶数
+ * @param num 
+ * @returns 
+ */
+export const isEven = (num: number) => num % 2 === 0;
 
 /** 
  * 判断输入是否为一个整数
@@ -43,6 +46,12 @@ export const zeroPadPre = (target:number | string, length:number = 1) => {
  * @returns boolean 
  */
 export const isInteger = (val: number) => Math.floor(val) === val
+
+
+
+
+
+
 
 /**
  * 将浮点数转成整数，返回整数和倍数。
@@ -138,3 +147,10 @@ export function div(a:number, b:number){
   let result = (n1 / n2) * (t2 / t1)
   return result
 }
+
+/**
+ * 求平均值
+ * @param args 
+ * @returns 
+ */
+export const average = (...args: number[]) => args.reduce((a, b) => add(a, b)) / args.length;
