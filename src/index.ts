@@ -1,3 +1,5 @@
+export const version = '1.0.0'
+
 export * as ArrayUtils from './array'
 export * from './array'
 
