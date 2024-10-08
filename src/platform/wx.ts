@@ -1,7 +1,9 @@
 /* 获取状态栏 + 胶囊高度 */
 export function getHolderHeight(){
+  // @ts-ignore
   const sysInfo = wx.getSystemInfoSync() // 系统信息
   const statusHeight = sysInfo.statusBarHeight // 系统状态栏高度
+  // @ts-ignore
   const capInfo = wx.getMenuButtonBoundingClientRect() // 小程序胶囊信息
   const capHeight = capInfo.height // 胶囊高度
   const capHeightDiff = capInfo.top - statusHeight // 胶囊顶部到屏幕顶部的距离 与 状态栏底部到屏幕顶部的距离 的高度差
