@@ -5,7 +5,6 @@ import {
   getArrDistinct,
   shuffleArray,
   isNotEmptyArr,
-  
   NumberUtils, //数字
   getRandomNumber,
   getRandomNumberFactory,
@@ -45,6 +44,8 @@ import {
   isDarkMode,
   callOnWeb,
   jsonLog,
+  PlatformUtils, // platform
+  getHolderHeight,
 } from "../src/index"
 
 test("array utils", () => {
@@ -141,5 +142,10 @@ test("web utils", () => {
   expect(goToTop).toBeTypeOf("function")
   expect(isDarkMode).toBeTypeOf("function")
   expect(jsonLog).toBeTypeOf("function")
+})
+
+test("platform utils", () => {
+  expect(PlatformUtils.getHolderHeight).toBeTypeOf("function")
+  expect(getHolderHeight).toBeTypeOf("function")
 })
 

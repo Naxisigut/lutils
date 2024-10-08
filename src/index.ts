@@ -12,3 +12,6 @@ export * from './string'
 
 export * as WebUtils from './web'
 export * from './web'
+
+export * as PlatformUtils from './platform'
+export * from './platform'
