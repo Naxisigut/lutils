@@ -17,11 +17,15 @@
   "scripts": {
     "dev": "vitest --ui",
     "test": "vitest",
-    "build": "tsc && vite build",
+    "build": "npm run build:dev && npm run build:prod",
+    "build:dev": "tsc && vite build --config vite.config.ts",
+    "build:prod": "tsc && vite build --config vite.config.prod.ts",
+    "build:merge": "node scripts/merge.js", 
     "preview": "vite"
   },
   "devDependencies": {
     "@vitest/ui": "^2.1.1",
+    "glob": "^11.0.2",
     "typescript": "^5.5.3",
     "vite": "^5.4.1",
     "vitest": "^2.1.1"
