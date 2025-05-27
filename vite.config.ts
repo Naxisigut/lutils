@@ -3,16 +3,30 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
 
+const formatMap = {
+  es: 'js',
+  cjs: 'cjs',
+}
 export default defineConfig({
   server: {
     port: 5100,
   },
   build: {
+    minify: true,
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'), // Could also be a dictionary or array of multiple entry points
+      entry: {
+        index: resolve(__dirname, 'src/index.ts'),
+        'number/numSanitize': resolve(__dirname, 'src/number/numSanitize.ts'),
+        'number/accurateCal': resolve(__dirname, 'src/number/accurateCal.ts'),
+      },
       name: 'lutils',
-      // the proper extensions will be added
-      fileName: 'lutils'
+      fileName: (format, entryName) => {
+        if (entryName === 'index') {
+          return 'lutils.js'
+        }
+        return `${entryName}.${formatMap[format]}`
+      },
+      formats: ['es', 'cjs'],
     }
     // rollupOptions: {
     //   // 确保外部化处理那些你不想打包进库的依赖
@@ -24,6 +38,7 @@ export default defineConfig({
     //     },
     //   },
     // },
+    
   }
 })
 

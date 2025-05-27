@@ -1,5 +1,5 @@
 
-/* 2024.01.18 */
+/* 2025.05.27 */
 type SanitizeOption = {
   isMinusAllowed?: boolean,
   isDotAllowed?: boolean,
@@ -17,35 +17,6 @@ const enum commandTypes{
   DELETE = 2,
   DELETE_PREV_ONE = 3,
   DELETE_NEXT_ALL = 4
-}
-
-export function numSanitize(val: string, option?: SanitizeOption){
-  const ctx = createCtx(val, option)
-  while(ctx.pointer < ctx.source.length){
-    // debugger
-    const { type } = getChType(ctx, ctx.pointer)
-    let command
-    switch (type) {
-      case CharactorTypes.NUMBER:
-        command = getNumCommand(ctx)
-        break;
-      case CharactorTypes.MINUS:
-        command = getMinusCommand(ctx)
-        break;
-      case CharactorTypes.DOT:
-        command = getDotCommand(ctx)
-        break;
-
-      default: // CharactorTypes.Other
-        command = commandTypes.DELETE
-        break;
-    }
-
-    ctx.excute(command)
-    
-  }
-
-  return ctx.source
 }
 
 function genOption(option:SanitizeOption = {}){
@@ -165,3 +136,35 @@ function getNumCommand(ctx: any){
   return commandTypes.KEEP
 
 }
+
+
+function numSanitize(val: string, option?: SanitizeOption){
+  const ctx = createCtx(val, option)
+  while(ctx.pointer < ctx.source.length){
+    // debugger
+    const { type } = getChType(ctx, ctx.pointer)
+    let command
+    switch (type) {
+      case CharactorTypes.NUMBER:
+        command = getNumCommand(ctx)
+        break;
+      case CharactorTypes.MINUS:
+        command = getMinusCommand(ctx)
+        break;
+      case CharactorTypes.DOT:
+        command = getDotCommand(ctx)
+        break;
+
+      default: // CharactorTypes.Other
+        command = commandTypes.DELETE
+        break;
+    }
+
+    ctx.excute(command)
+    
+  }
+
+  return ctx.source
+}
+
+export default numSanitize

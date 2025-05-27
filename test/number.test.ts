@@ -1,8 +1,7 @@
 import { test, expect, describe, it } from 'vitest';
 import AccurateCal from '../src/number/accurateCal';
-import AccurateCalDist from '../src/number/accurateCal dist.js';
-import { zeroPadPre, getRandomNumber, getRandomNumberFactory } from '../src/number/index';
-import { numSanitize, isInteger, isEven } from '../src/number/index';
+import { zeroPadPre, getRandomNumber, getRandomNumberFactory, isInteger, isEven } from '../src/number/index';
+import numSanitize from '../src/number/numSanitize';
 
 test('isInteger', () => {
   expect(isInteger(0.3)).toBe(false) 
@@ -42,7 +41,7 @@ test('getRandomNumberFactory', () => {
 
 
 
-describe('AccurateCal Ts', () => {
+describe('AccurateCal', () => {
   test('add', () => {
     expect(AccurateCal.add(1, 2, 3, 4)).toBe(10)  // 两数加法 => 多数求和
     expect(AccurateCal.add(0.1, 0.2)).toBe(0.3) // 浮点数精度问题
@@ -68,34 +67,6 @@ describe('AccurateCal Ts', () => {
     expect(AccurateCal.average(0.1, 0.2, 0.3)).toBe(0.2)  // 浮点数精度问题 
   })
 })
-
-describe('AccurateCal JS', () => {
-  test('add', () => {
-    expect(AccurateCalDist.add(1, 2, 3, 4)).toBe(10)  // 两数加法 => 多数求和
-    expect(AccurateCalDist.add(0.1, 0.2)).toBe(0.3) // 浮点数精度问题
-  })
-
-  test('sub', () => {
-    expect(AccurateCalDist.sub(0.3, 0.1)).toBe(0.2) // 浮点数精度问题 
-  })
-
-  test('mul', () => {
-    expect(AccurateCalDist.mul(0.3, 0.5)).toBe(0.15)  // 浮点数精度问题 
-    expect(AccurateCalDist.mul(0.1, 0.2)).toBe(0.02)  // 浮点数精度问题 
-    expect(AccurateCalDist.mul(0.1, 0.2, 1, 2, )).toBe(0.04)  // 两数乘法 => 多数求积
-  })
-
-  test('div', () => {
-    expect(AccurateCalDist.div(0.3, 0.1)).toBe(3)  // 浮点数精度问题 
-    expect(AccurateCalDist.div(0.3, 2)).toBe(0.15)  // 浮点数精度问题 
-  })
-
-  test('average', () => {
-    expect(AccurateCalDist.average(0.1, 0.2)).toBe(0.15)  // 浮点数精度问题 
-    expect(AccurateCalDist.average(0.1, 0.2, 0.3)).toBe(0.2)  // 浮点数精度问题 
-  })
-})
-
 
 
 describe('numSanitize', () => {
