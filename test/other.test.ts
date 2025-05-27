@@ -3,9 +3,8 @@ import { formatTime, sleep, rgb2Hex, isDateValid, dayOfYear, dayDiff, getRandomC
 import { strShift } from '../src/string/index';
 
 test('formatTime', () => {
-  const dateObj = new Date()
-  const dateStr = `${dateObj.getFullYear()}-${dateObj.getMonth() + 1}-${dateObj.getDate().toString().length === 1 && 0}${dateObj.getDate()}`
-  expect(formatTime(new Date, 'YYYY-MM-DD')).toBe(dateStr)
+  const dateObj = new Date('2025-1-1')
+  expect(formatTime(dateObj, 'YYYY-MM-DD')).toBe('2025-01-01')
 })
 
 test('sleep', async () => {
