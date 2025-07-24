@@ -1,5 +1,5 @@
 /* 获取状态栏 + 胶囊高度 */
-export function getHolderHeight(){
+export function getTitleBarHeight(){
   // @ts-ignore
   const sysInfo = wx.getSystemInfoSync() // 系统信息
   const statusHeight = sysInfo.statusBarHeight // 系统状态栏高度
